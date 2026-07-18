@@ -9,7 +9,7 @@ function App() {
       <BarraDeNavegacion/>
       <Routes>
         <Route path='/' element={<Traductor/>}></Route>
-        <Route path='/traductor' element={<Traductor/>}></Route>
+        {/*<Route path='/traductor' element={<Traductor/>}></Route>*/}
       </Routes>
     </>
   )
