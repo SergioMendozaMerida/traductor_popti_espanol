@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useEffectEvent, useState } from "react"
 import { supabase } from "../supabase/conectio"
 import type { ResTraduccion } from "../interfaces/interfaces"
 
@@ -6,8 +6,10 @@ export const useTraducir = () => {
     
     const [palabraEntrada, setPalabraEntrada] = useState<string>('')
     const [respuesta, setRespuesta] = useState<ResTraduccion[]>([])
+    const [coincidenciaExacta, setCoincidenciaExacta] = useState<ResTraduccion>()
 
     const [idiomaEntrada, setIdiomaEntrada] = useState<boolean>(true)
+
 
     const traducirPoptiEspanol = async () => {
 
@@ -22,6 +24,7 @@ export const useTraducir = () => {
             }
 
             setRespuesta(palabras)
+
         } catch (err) {
             console.error('Error al traducir:', err)
         }
@@ -61,10 +64,26 @@ export const useTraducir = () => {
             traducirEspanolPopti()
         }
     }
+
+    useEffect( () => {
+        respuesta.forEach(palabra => {
+                if(idiomaEntrada)
+                    if(palabraEntrada === palabra.palabraespanol)
+                        setCoincidenciaExacta(palabra)
+                        console.log(palabra)
+                if(!idiomaEntrada)
+                    if(palabraEntrada === palabra.palabrapopti)
+                        setCoincidenciaExacta(palabra)
+                        console.log(palabra)
+            });
+    }, [respuesta] )
+
+
     return {
         palabraEntrada,
         setPalabraEntrada,
         respuesta,
+        coincidenciaExacta,
         idiomaEntrada,
         setIdiomaEntrada,
         traducir

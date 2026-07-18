@@ -36,10 +36,10 @@ export const CardsResultado = ({resultado, idiomaEntrada}:Props) => {
                 <div className="w-12 h-0.5 bg-[#FBC02D] my-2 rounded-full" />
 
                 {/* Palabra Español */}
-                <p className="text-lg text-gray-700">
+                <div className="text-lg text-gray-700">
                 {!idiomaEntrada ? word.palabrapopti : word.palabraespanol}
                 <p className="text-sm text-gray-700 italic">{word.categoria}</p>
-                </p>
+                </div>
             </div>
             ))
         )}
