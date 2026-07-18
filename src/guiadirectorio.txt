@@ -1,0 +1,70 @@
+src/
+│
+├── api/
+│   ├── supabaseClient.ts
+│   └── auth.api.ts
+│
+├── assets/
+│   ├── images/
+│   ├── icons/
+│   └── styles/
+│       └── global.css
+│
+├── components/
+│   ├── ui/
+│   │   ├── Button.tsx
+│   │   ├── Input.tsx
+│   │   └── Card.tsx
+│   │
+│   ├── layout/
+│   │   ├── Navbar.tsx
+│   │   ├── Sidebar.tsx
+│   │   └── ProtectedRoute.tsx
+│   │
+│   └── common/
+│       ├── Loader.tsx
+│       └── Modal.tsx
+│
+├── context/
+│   └── AuthContext.tsx
+│
+├── hooks/
+│   ├── useAuth.ts
+│   ├── useSession.ts
+│   └── useFetch.ts
+│
+├── interfaces/
+│   ├── user.interface.ts
+│   ├── auth.interface.ts
+│   └── palabras.interface.ts
+│
+├── pages/
+│   ├── auth/
+│   │   ├── Login.tsx
+│   │   └── Register.tsx
+│   │
+│   ├── dashboard/
+│   │   ├── Dashboard.tsx
+│   │   └── Home.tsx
+│   │
+│   └── NotFound.tsx
+│
+├── reducers/
+│   ├── auth.reducer.ts
+│   └── palabras.reducer.ts
+│
+├── routes/
+│   └── AppRouter.tsx
+│
+├── services/
+│   ├── auth.service.ts
+│   └── palabras.service.ts
+│
+├── utils/
+│   ├── constants.ts
+│   ├── helpers.ts
+│   └── validators.ts
+│
+├── App.tsx
+├── main.tsx
+└── vite-env.d.ts
