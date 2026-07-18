@@ -7,9 +7,9 @@ export const BarraDeNavegacion = () => {
                 <h1 className="text-xl font-bold">Popti Español</h1>
                 <ul className="flex gap-6">
                     <li>
-                        <Link to='/traductor' className="text-gray-300">
-                            Traductor
-                        </Link>
+                        <h2>
+                            Softnam.gt
+                        </h2>
                     </li>
                     {/*<li>
                         <Link to='/pares' className="text-gray-300">
