@@ -1,4 +1,4 @@
-import { useEffect, useEffectEvent, useState } from "react"
+import { useState } from "react"
 import { supabase } from "../supabase/conectio"
 import type { ResTraduccion } from "../interfaces/interfaces"
 
@@ -23,7 +23,17 @@ export const useTraducir = () => {
                 throw error
             }
 
-            setRespuesta(palabras)
+            const exacta = palabras.find(
+                p => p.palabrapopti.toLowerCase() === palabraEntrada.toLowerCase()
+            );
+
+            setCoincidenciaExacta(exacta)
+
+            const resto = palabras.filter(
+                p => p.palabrapopti.toLowerCase() !== palabraEntrada.toLowerCase()
+            );
+
+            setRespuesta(resto);
 
         } catch (err) {
             console.error('Error al traducir:', err)
@@ -42,7 +52,18 @@ export const useTraducir = () => {
                 throw error
             }
 
-            setRespuesta(palabras)
+            const exacta = palabras.find(
+                p => p.palabraespanol.toLowerCase() === palabraEntrada.toLowerCase()
+            );
+
+            setCoincidenciaExacta(exacta)
+
+            const resto = palabras.filter(
+                p => p.palabraespanol.toLowerCase() !== palabraEntrada.toLowerCase()
+            );
+
+            setRespuesta(resto);
+
         } catch (err) {
             console.log('Error al traducir', err)
         }
@@ -64,20 +85,6 @@ export const useTraducir = () => {
             traducirEspanolPopti()
         }
     }
-
-    useEffect( () => {
-        respuesta.forEach(palabra => {
-                if(idiomaEntrada)
-                    if(palabraEntrada === palabra.palabraespanol)
-                        setCoincidenciaExacta(palabra)
-                        console.log(palabra)
-                if(!idiomaEntrada)
-                    if(palabraEntrada === palabra.palabrapopti)
-                        setCoincidenciaExacta(palabra)
-                        console.log(palabra)
-            });
-    }, [respuesta] )
-
 
     return {
         palabraEntrada,

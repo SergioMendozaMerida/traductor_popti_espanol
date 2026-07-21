@@ -8,6 +8,7 @@ export const Traductor = () => {
     const {
         palabraEntrada,
         setPalabraEntrada,
+        coincidenciaExacta,
         respuesta,
         idiomaEntrada,
         setIdiomaEntrada,
@@ -45,7 +46,8 @@ export const Traductor = () => {
                             Palabra en {!idiomaEntrada ? 'popti' : 'español'}
                         </label>
 
-                        <CardsResultado resultado={respuesta} idiomaEntrada={idiomaEntrada}/>
+                        <CardsResultado resultado={respuesta} idiomaEntrada={idiomaEntrada} 
+                            coincidenciaExacta={coincidenciaExacta}/>
                         </div>
                     </div>
 
